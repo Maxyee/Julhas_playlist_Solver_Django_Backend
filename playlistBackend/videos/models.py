@@ -1,16 +1,15 @@
 from django.db import models
-from django.contrib.auth.models import User
-# from .models import (
-#     Categories
-# )
+
+# Create your models here.
 
 from categories.models import Categories
 
 
-# Create your models here.
-
 class Videos(models.Model):
     video_title = models.CharField(max_length=50)
     video_description = models.TextField()
-    categories_id = models.ForeignKey(Categories, on_delete=models.CASCADE)
-    user_id = models.ForeignKey(User, on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    categories = models.ForeignKey(Categories, related_name='categories', on_delete=models.CASCADE)
+    user = models.ForeignKey('auth.User', related_name='videos', on_delete=models.CASCADE)
+
