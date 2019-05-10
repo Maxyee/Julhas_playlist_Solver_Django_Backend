@@ -67,6 +67,7 @@ class get_post_videos(ListCreateAPIView):
     permission_classes = (IsAuthenticated,)
     pagination_class = CustomPagination
 
+
     def get_queryset(self):
         videos = Videos.objects.all()
         return videos
