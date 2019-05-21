@@ -7,7 +7,7 @@ from .models import Videos
 
 
 class VideosModelAdmin(admin.ModelAdmin):
-    list_display = ["video_title", "video_description", "created_at","updated_at", "categories", "user"]
+    list_display = ["video_title", "video_description","video_url", "created_at", "updated_at", "categories", "user"]
 
     class Meta:
         model = Videos
